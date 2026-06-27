@@ -1,9 +1,3 @@
-# Previsor de utilização de moves (VGC rule balance)
-
-Scripts de estágio (FCUP / VORTEX-CoLab) para treinar e avaliar um previsor de distribuição de moves em batalhas Pokémon VGC, com integração em rule balance (GA).
-
-Este repositório contém **apenas os scripts do estágio**. O motor de simulação **VGC AI Framework 2** (`vgc2`) é uma **dependência externa** — não está incluído aqui.
-
 ## Dependência obrigatória: VGC AI Framework 2
 
 ```bash
@@ -11,10 +5,6 @@ git clone https://gitlab.com/DracoStriker/pokemon-vgc-engine.git
 cd pokemon-vgc-engine
 pip install .
 ```
-
-Confirma com o orientador qual **commit ou branch** usar — algumas funcionalidades usadas nestes scripts (ex.: `vgc2.ml.battle_policies`, `external_generators`, alterações em `fixed_matches`) podem ainda não estar no upstream público.
-
-Demonstração visual no Godot: abre o projeto `visual_server/` **dentro do clone do framework** (Godot 4.4).
 
 ## Setup
 
@@ -28,11 +18,11 @@ pip install -r requirements.txt
 # Noutra pasta: instalar vgc2 (ver acima)
 ```
 
-Coloca na pasta de trabalho (ou gera com os scripts):
+Colocar na pasta de trabalho (ou gera com os scripts):
 
-- `move_count_sup_*.npz` — dataset de supervisão
-- `move_predictor_local.pt` — checkpoint do previsor (não versionado no Git)
-- `sup_guidelines_rules.pt` — agente IL para demos e rollouts (não versionado)
+- `move_count_sup_*.npz` - dataset de supervisão
+- `move_predictor_local.pt` - checkpoint do previsor (não versionado no Git)
+- `sup_guidelines_rules.pt` - agente IL para demos e rollouts (não versionado)
 
 Ficheiros JSON de arquitetura (ex. `move_predictor_local.json`) podem ser guardados à parte; são recriados no treino.
 
@@ -57,7 +47,7 @@ python -u balance_team_predictor_ga.py --predictor_ckpt move_predictor_local.pt
 
 ## Demonstração Godot
 
-1. Abre `pokemon-vgc-engine/visual_server` no Godot e carrega em Play (porta UDP 12345).
+1. Abrir `pokemon-vgc-engine/visual_server` no Godot e carrega em Play (porta UDP 12345).
 2. Nesta pasta:
 
 ```bash
@@ -71,13 +61,6 @@ python -u demo_godot_battle.py \
 
 - `battle_agent.py` — política híbrida com exploit de switch
 - `gen.py` — gerador externo de equipas
-
-## O que não está neste repositório
-
-- Código `vgc2/` (framework)
-- `visual_server/` (Godot)
-- Checkpoints `.pt` e datasets `.npz` (demasiado grandes)
-- Relatório LaTeX (`paper/`)
 
 ## Licença
 
