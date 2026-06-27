@@ -1,0 +1,10 @@
+# Dependência manual (não instalável via pip por agora):
+#   git clone https://gitlab.com/DracoStriker/pokemon-vgc-engine
+#   cd pokemon-vgc-engine && pip install .
+# Ver README.md para a versão/commit recomendado pelo orientador.
+
+numpy>=2.0
+torch>=2.0
+matplotlib>=3.8
+gymnasium>=1.0
+pygad>=3.0
